@@ -1,5 +1,5 @@
 {
-  "name": "inspect-proxy",
+  "name": "server-inspect-proxy",
   "version": "1.0.0",
   "description": "A node inspector proxy plugin",
   "main": "./dist/index.js",
