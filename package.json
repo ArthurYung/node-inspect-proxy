@@ -2,10 +2,10 @@
   "name": "inspect-proxy",
   "version": "1.0.0",
   "description": "A node inspector proxy plugin",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=inspect jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "ws": "^7.3.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.8",
     "@types/ws": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
     "@typescript-eslint/parser": "^3.4.0",

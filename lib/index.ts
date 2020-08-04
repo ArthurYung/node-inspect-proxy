@@ -1,4 +1,5 @@
 import { fork } from 'child_process'
+import { resolve } from 'path'
 import * as url from 'url'
 
 export const debug = (app, port = 9229) => {
@@ -20,7 +21,7 @@ export const debug = (app, port = 9229) => {
 
   process.env.NODE_OPTIONS = ''
 
-  const worker = fork('./dist/inspect/debug.js',)
+  const worker = fork(resolve(__dirname, 'proxy.js'))
 
   process.env.NODE_OPTIONS = nodeOptions
   
@@ -35,5 +36,4 @@ export const debug = (app, port = 9229) => {
       }, socket);
     }
   });
-
 }
