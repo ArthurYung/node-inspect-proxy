@@ -27,6 +27,6 @@ const server = createServer((req, res) => {
 
 debug(server)
 ```
-And open chrome://devtools/bundled/js_app.html?ws=YOUR_APP_HOST/__debug__   
+And open chrome://devtools/bundled/js_app.html?ws=YOUR_APP_HOST/\_\_debug\_\_   
 
 ![20200805005432](http://cdn.toofook.com/markdown/20200805005432.png)
