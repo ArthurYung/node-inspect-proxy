@@ -1,6 +1,6 @@
 {
   "name": "server-inspect-proxy",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A node inspector proxy plugin",
   "main": "./dist/index.js",
   "scripts": {
@@ -39,5 +39,6 @@
   "bugs": {
     "url": "https://github.com/ArthurYung/node-inspect-proxy/issues"
   },
-  "homepage": "https://github.com/ArthurYung/node-inspect-proxy#readme"
+  "homepage": "https://github.com/ArthurYung/node-inspect-proxy#readme",
+  "typings": "./types.d.ts"
 }
