@@ -1,6 +1,6 @@
 {
   "name": "server-inspect-proxy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A node inspector proxy plugin",
   "main": "./dist/index.js",
   "scripts": {

@@ -32,9 +32,11 @@ function getDebuggerUrl(prot: string) {
             reject(`a devTools has connected to ws://127.0.0.1/${prot}`);
           }
         })
-        .on("error", (error) => {
-          reject(error.message);
-        });
+      res.on("error", (error) => {
+        reject(error.message);
+      });
+    }).on('error', error => {
+      reject(error.message)
     });
   });
 }
@@ -106,7 +108,6 @@ server.on("connection", (socket, incomingMessage) => {
 
   // get proxy prot
   const prot = url.parse(incomingMessage.url, true).pathname.slice(1);
-
   proxyStart(socket, prot);
 });
 

@@ -4,9 +4,9 @@ exports.debug = void 0;
 const child_process_1 = require("child_process");
 const path_1 = require("path");
 const url = require("url");
-exports.debug = (app, port = 9229) => {
+exports.debug = (app) => {
     const nodeOptions = process.env.NODE_OPTIONS;
-    if (nodeOptions !== '--inspect' && nodeOptions !== '--inspect-res') {
+    if (!nodeOptions.startsWith('--inspect')) {
         return;
     }
     console.debug(`
@@ -23,12 +23,12 @@ exports.debug = (app, port = 9229) => {
     process.env.NODE_OPTIONS = nodeOptions;
     app.on('upgrade', function upgrade(request, socket) {
         const pathname = url.parse(request.url).pathname;
-        if (pathname === '/__debug__') {
+        if (pathname.startsWith('/__debug__')) {
             worker.send({
                 headers: request.headers,
                 method: request.method,
                 type: 'connect',
-                url: '/' + port,
+                url: '/' + (pathname.replace(/\/__debug__/, '') || '9229'),
             }, socket);
         }
     });
