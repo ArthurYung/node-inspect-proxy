@@ -34,4 +34,19 @@ And open chrome://devtools/bundled/js_app.html?ws=YOUR_APP_HOST/\_\_debug\_\_
 
 ![20200805005432](http://cdn.toofook.com/markdown/20200805005432.png)
 
+## 1.0.6
+Use in koa/express:
+```js
+const Koa = require('koa');
+const app = new Koa();
+const { debug } = require('../dist/index')
+
+const main = ctx => {
+  ctx.response.body = 'Hello World';
+};
+
+app.use(main);
+
+debug(app.listen(3322))
+```
 
