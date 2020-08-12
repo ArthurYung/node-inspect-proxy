@@ -1,10 +1,10 @@
 import { fork } from 'child_process'
 import { resolve } from 'path'
+import { isInspect, getInspectPort } from './utils'
 import * as url from 'url'
 
 export const debug = (app) => {
-  const nodeOptions = process.env.NODE_OPTIONS
-  if (!nodeOptions.startsWith('--inspect')) {
+  if (!isInspect()) {
     return;
   }
 
@@ -18,9 +18,12 @@ export const debug = (app) => {
 
   `);
 
+  const nodeOptions = process.env.NODE_OPTIONS
+  const inspectPort = getInspectPort()
+
   process.env.NODE_OPTIONS = ''
 
-  const worker = fork(resolve(__dirname, 'proxy.js'))
+  const worker = fork(resolve(__dirname, 'proxy.js'), { execArgv: [] })
 
   process.env.NODE_OPTIONS = nodeOptions
 
@@ -32,7 +35,7 @@ export const debug = (app) => {
         headers: request.headers, 
         method: request.method, 
         type: 'connect',
-        url: '/' + (pathname.replace(/\/__debug__/, '') || '9229'),
+        url: '/' + inspectPort,
       }, socket);
     }
   });

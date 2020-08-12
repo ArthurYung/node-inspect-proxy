@@ -99,7 +99,6 @@ async function proxyStart(socket: WebSocket, prot: string) {
   }
 }
 
-
 server = new WebSocket.Server({noServer: true});
 
 server.on("connection", (socket, incomingMessage) => {

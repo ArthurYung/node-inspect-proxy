@@ -6,7 +6,7 @@ describe("proxy inspect server", () => {
       "sh",
       [
         "-c",
-        "NODE_OPTIONS=--inspect=9227 node ./test/child-server.js"
+        "NODE_OPTIONS='--inspect=9226' node ./test/child-server.js"
       ], {
         stdio: ["pipe", "inherit", "inherit"]
       }

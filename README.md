@@ -11,10 +11,13 @@ yarn add server-inspect-proxy
 ```
 
 ## Usage
-You have to add NODE_OPTIONS=--inspect instead of started with the --inspect switch.   
+You can define the inspection port and which will be automatically proxied.
 ```bash
 NODE_OPTIONS=--inspect node ./index.js
+node --inspect ./index.js
+node --inspect --inspect-port=xxx ./index.js
 ```
+
 ```js
 // index.js
 const { debug } = require('server-inspect-proxy')
@@ -31,9 +34,4 @@ And open chrome://devtools/bundled/js_app.html?ws=YOUR_APP_HOST/\_\_debug\_\_
 
 ![20200805005432](http://cdn.toofook.com/markdown/20200805005432.png)
 
-### 1.0.4
-Add port number after `"\_\_debug\_\_"`, you can proxy any inspect port in your server.
-```bash
-NODE_OPTIONS=--inspect=9220 node ./index.js
-```
-open chrome://devtools/bundled/js_app.html?ws=YOUR_APP_HOST/\_\_debug\_\_9220
+

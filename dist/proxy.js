@@ -90,6 +90,7 @@ async function proxyStart(socket, prot) {
         console.error(e);
     }
 }
+console.log(process.execArgv);
 server = new WebSocket.Server({ noServer: true });
 server.on("connection", (socket, incomingMessage) => {
     // pause current socket wait proxy
